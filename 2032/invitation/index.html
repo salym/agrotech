@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<!--Invitation finale - (c) salym.me-->
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Invitation Agrotech 2032</title>
+  <style>
+    a[data-cta] {
+      transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    /* CTA: lighten base, add shiny swipe and orange hover */
+    a[data-cta] {
+      background-color: #10b981 !important;
+      /* lighter emerald */
+      position: relative;
+      overflow: hidden;
+      transition: background-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+    }
+
+    a[data-cta]::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -60%;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0) 100%);
+      transform: skewX(-20deg) translateX(-100%);
+      opacity: 0;
+      transition: none;
+      pointer-events: none;
+    }
+
+    a[data-cta]:hover,
+    a[data-cta]:focus {
+      background-color: #f97316 !important;
+      /* orange */
+      transform: translateY(-2px);
+      box-shadow: 0 22px 40px -18px rgba(249, 115, 22, 0.55);
+    }
+
+    a[data-cta]:hover::after,
+    a[data-cta]:focus::after {
+      animation: cta-shine 1.7s cubic-bezier(.22, .61, .36, 1) forwards;
+    }
+
+    @keyframes cta-shine {
+      0% {
+        transform: skewX(-20deg) translateX(-100%);
+        opacity: 0;
+      }
+
+      15% {
+        opacity: 0.9;
+      }
+
+      100% {
+        transform: skewX(-20deg) translateX(520%);
+        opacity: 0;
+      }
+    }
+
+    img[data-logo] {
+      transition: transform 0.2s ease, filter 0.25s ease, opacity 0.2s ease;
+    }
+
+    img[data-logo]:hover {
+      transform: translateY(-2px);
+      filter: saturate(115%);
+      opacity: 1;
+    }
+
+    [data-logo-row] {
+      gap: 0.75rem;
+    }
+
+    [data-logo-slot] {
+      flex: 1 1 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 3.25rem;
+      padding: 0.5rem 1rem;
+      box-sizing: border-box;
+    }
+
+    [data-logo-slot][data-logo-width="wide"] {
+      gap: 0.75rem;
+    }
+
+    @media (min-width: 1024px) {
+      [data-logo-row] {
+        flex-wrap: nowrap !important;
+        justify-content: space-between;
+        gap: 2.5rem;
+      }
+
+      [data-logo-slot] {
+        flex: 0 0 auto;
+      }
+
+      [data-logo-slot][data-logo-width="wide"] {
+        gap: 1.5rem;
+      }
+    }
+
+    /* Tighten partner logos spacing on small screens */
+    [data-logo-row] {
+      gap: 1rem;
+    }
+
+    [data-logo-slot] {
+      flex: 0 0 auto;
+      padding: 0.25rem 0.5rem;
+    }
+
+    [data-info-card] {
+      position: relative;
+      padding: 0.875rem 1rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.875rem;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    [data-info-card]::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 3px;
+      border-radius: 0.875rem 0.875rem 0 0;
+      background: linear-gradient(90deg, #10b981, #047857);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    [data-info-card]:hover,
+    [data-info-card]:focus-within {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 30px -16px rgba(4, 120, 87, 0.45);
+      border-color: #86efac;
+      background-color: #ffffff;
+    }
+
+    [data-info-card]:hover::before,
+    [data-info-card]:focus-within::before {
+      opacity: 1;
+    }
+
+    [data-info-card] .info-primary {
+      margin: 0;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: 0.01em;
+    }
+
+    [data-info-card] .info-secondary {
+      margin: 0.125rem 0 0;
+      color: #475569;
+    }
+
+    [data-info-card]>div:first-child {
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    [data-info-card]:hover>div:first-child,
+    [data-info-card]:focus-within>div:first-child {
+      color: #f97316 !important;
+      /* ensure override of inline color */
+    }
+
+    [data-info-card] svg {
+      transition: color 0.2s ease;
+    }
+
+    [data-info-card] svg path {
+      transition: stroke 0.2s ease;
+      /* smooth stroke color change */
+    }
+
+    [data-info-card]:hover>div:first-child {
+      background-color: #bbf7d0;
+      transform: scale(1.03);
+    }
+
+    img[data-logo][data-logo="partner"],
+    img[data-logo="partner"] {
+      max-height: 3.2rem !important;
+    }
+
+    @media (min-width: 1024px) {
+
+      img[data-logo][data-logo="partner"],
+      img[data-logo="partner"] {
+        max-height: 3.6rem !important;
+      }
+    }
+
+    /* Partner logos spacing overrides: larger gaps on all screens */
+    [data-logo-row] {
+      column-gap: 1.5rem !important;
+      row-gap: 0.75rem !important;
+    }
+
+    @media (min-width: 1024px) {
+      [data-logo-row] {
+        column-gap: 3rem !important;
+        row-gap: 1rem !important;
+      }
+    }
+  </style>
+</head>
+
+<body
+  style="margin:0;font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;background-color:#f1f5f9;color:#0f172a;line-height:1.6;">
+  <main
+    style="min-height:100vh;padding:3rem 1.5rem;display:flex;justify-content:center;align-items:flex-start;box-sizing:border-box;">
+    <article
+      style="width:min(100%,64rem);background-color:#ffffff;border-radius:1.25rem;border:1px solid #e2e8f0;box-shadow:0 25px 50px -12px rgba(15,23,42,0.25);overflow:hidden;box-sizing:border-box;">
+      <header
+        style="text-align:center;background-color:#ecfdf5;padding:2rem 2rem;border-bottom:1px solid rgba(148,163,184,0.25);box-sizing:border-box;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:0.9rem;margin:0 0 1.5rem;width:100%;">
+          <span
+            style="display:inline-flex;align-items:center;align-self:flex-start;flex-shrink:0;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;font-size:1rem;background-color:#d1fae5;color:#047857;padding:0.5rem 1.25rem;border-radius:999px;">RETENEZ
+            LA DATE</span>
+          <span
+            style="display:inline-flex;align-items:center;justify-content:center;text-transform:uppercase;font-size:1.35rem;letter-spacing:0.22em;font-weight:700;color:#be123c;line-height:1;">Invitation
+            personnelle</span>
+        </div>
+        <div data-header-logos="true"
+          style="display:flex;justify-content:center;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-top:4rem; margin-bottom:1.25rem;box-sizing:border-box;">
+          <div style="display:flex;align-items:center;gap:0.55rem;">
+            <img data-logo="header" src="img/AgroTech.webp" alt="Agrotech" loading="lazy"
+              style="height:3.7rem;width:auto;display:block;filter:none;opacity:0.95;mix-blend-mode:multiply;margin-bottom:1em;" />
+            <span
+              style="font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#065f46;font-size:0.65rem;">Labellisé</span>
+            <img data-logo="header" src="img/Logo-Greentech-Innovation-1.webp" alt="Greentech Innovation" loading="lazy"
+              style="height:3rem;width:auto;max-width:10rem;display:block;filter:none;opacity:0.95;" />
+          </div>
+          <span aria-hidden="true"
+            style="display:inline-block;width:2px;height:2.5rem;background-color:rgba(148,163,184,0.3);"></span>
+          <img data-logo="header" src="img/logo-ville-de-willems.webp" alt="Ville de Willems" loading="lazy"
+            style="height:3rem;width:auto;max-width:8rem;display:block;filter:none;opacity:0.95;mix-blend-mode:multiply;" />
+          <img data-logo="header" src="img/logo-mel.webp" alt="Métropole Européenne de Lille" loading="lazy"
+            style="height:3rem;width:auto;max-width:8rem;display:block;filter:none;opacity:0.95;" />
+          <img data-logo="header" src="img/logo-region-hauts-de-france.webp" alt="Région Hauts-de-France" loading="lazy"
+            style="height:2.3rem;width:auto;max-width:12rem;display:block;filter:none;opacity:0.95;" />
+        </div>
+        <h1
+          style="font-size:clamp(1.25rem,2vw + 1rem,1.75rem);font-weight:300;color:#0f172a;max-width:36rem;margin:1.5rem auto;box-sizing:border-box;">
+          sont heureux de vous inviter<br>mardi 18 novembre 2025<br>à la présentation du projet</h1>
+        <div style="display:flex;justify-content:center;margin-bottom:1.5rem;">
+          <img src="img/event-logo.png" alt="Agrotech 2032" loading="lazy"
+            style="display:block;width:min(35rem,85vw);height:auto;box-sizing:border-box;" />
+        </div>
+        <p style="font-size:clamp(1.15rem,0.75rem + 0.5vw,1.35rem);font-style:italic;color:#065f46;margin:0 0 2.5rem;">
+          Accélérer la transition de l’économie régénérative en créant des activités profitables pour le territoire</p>
+        <a data-cta="true" href="#inscription"
+          style="display:inline-block;padding:1rem 2.75rem;border-radius:0.8rem;color:#ffffff;font-weight:700;font-size:1.05rem;text-decoration:none;box-shadow:0 15px 30px -12px rgba(4,120,87,0.45);">Je
+          m'inscris</a>
+      </header>
+
+      <section id="intro"
+        style="padding:clamp(2.5rem,3vw,3.5rem) clamp(2rem,4vw,3.5rem);text-align:center;box-sizing:border-box;">
+        <p
+          style="margin:0;font-size:clamp(1rem,0.75rem + 0.4vw,1.125rem);color:#475569;text-align:justify;text-justify:inter-word;hyphens:auto;">
+          Depuis 2018, l'incubateur AgroTech d'Euratechnologies à Willems a accompagné le développement de près d'une
+          centaine de startups dans les domaines de l'Agriculture et de la GreenTech. Fort de ce succès, AgroTech
+          ambitionne de devenir à l'horizon 2032 un écosystème territorial pionnier de l'économie régénérative.</p>
+      </section>
+
+      <section id="calendar"
+        style="padding:clamp(2.5rem,3vw,3.5rem) clamp(2rem,4vw,3.5rem);border-top:1px solid #e2e8f0;box-sizing:border-box;display:grid;gap:1.75rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));">
+        <div data-info-card style="display:flex;align-items:center;gap:1rem;box-sizing:border-box;">
+          <div
+            style="flex-shrink:0;width:3rem;height:3rem;border-radius:999px;background-color:#dcfce7;color:#047857;display:flex;align-items:center;justify-content:center;box-sizing:border-box;">
+            <svg viewBox="0 0 24 24" aria-hidden="true" style="width:1.5rem;height:1.5rem;display:block;">
+              <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2z"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              </path>
+            </svg>
+          </div>
+          <div style="box-sizing:border-box;">
+            <p class="info-primary" style="margin:0;font-weight:700;color:#0f172a;">18 Novembre 2025</p>
+            <p class="info-secondary" style="margin:0.125rem 0 0;color:#64748b;font-size:0.95rem;">Mardi</p>
+          </div>
+        </div>
+        <div data-info-card style="display:flex;align-items:center;gap:1rem;box-sizing:border-box;">
+          <div
+            style="flex-shrink:0;width:3rem;height:3rem;border-radius:999px;background-color:#dcfce7;color:#047857;display:flex;align-items:center;justify-content:center;box-sizing:border-box;">
+            <svg viewBox="0 0 24 24" aria-hidden="true" style="width:1.5rem;height:1.5rem;display:block;">
+              <path d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <div style="box-sizing:border-box;">
+            <p class="info-primary" style="margin:0;font-weight:700;color:#0f172a;">9h15 - 12h15</p>
+            <p class="info-secondary" style="margin:0.125rem 0 0;color:#64748b;font-size:0.95rem;">Accueil à partir de
+              9h00</p>
+          </div>
+        </div>
+        <div data-info-card style="display:flex;align-items:center;gap:1rem;box-sizing:border-box;">
+          <div
+            style="flex-shrink:0;width:3rem;height:3rem;border-radius:999px;background-color:#dcfce7;color:#047857;display:flex;align-items:center;justify-content:center;box-sizing:border-box;">
+            <svg viewBox="0 0 24 24" aria-hidden="true" style="width:1.5rem;height:1.5rem;display:block;">
+              <path d="M17.657 16.657 13.414 20.9a2 2 0 0 1-2.828 0L6.343 16.657a8 8 0 1 1 11.314 0z" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M15 11a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <div style="box-sizing:border-box;">
+            <p class="info-primary" style="margin:0;font-weight:700;color:#0f172a;">Pôle ECLAT</p>
+            <p class="info-secondary" style="margin:0.125rem 0 0;color:#64748b;font-size:0.95rem;">Willems, France</p>
+          </div>
+        </div>
+      </section>
+      <!--Pré-programme-->
+      <section
+        style="padding:clamp(2.5rem,3vw,3.5rem) clamp(2rem,4vw,3.5rem);border-top:1px solid #e2e8f0;box-sizing:border-box;">
+        <h2
+          style="margin:0 0 2rem;font-size:clamp(1.5rem,1rem + 1vw,2rem);text-align:center;font-weight:600;color:#334155;font-variant:small-caps;letter-spacing:0.08em;">
+          pré-programme</h2>
+        <p
+          style="margin:0 0 1.5rem;color:#475569;font-size:clamp(1rem,0.75rem + 0.4vw,1.125rem);text-align:justify;text-justify:inter-word;hyphens:auto;max-width:36rem;margin-left:auto;margin-right:auto;">
+          Comment faire évoluer notre modèle d'incubateur pour bâtir un écosystème d'innovation mature, capable de
+          catalyser le développement économique du territoire et d'accompagner ses entreprises les plus prometteuses
+          jusqu'à l'amorçage de leur production industrielle ?</p>
+        <ul
+          style="margin:0;padding:0;list-style:none;display:grid;gap:1rem;max-width:36rem;margin-left:auto;margin-right:auto;text-align:left;">
+          <li style="display:flex;align-items:flex-start;gap:0.75rem;color:#475569;box-sizing:border-box;">
+            <span aria-hidden="true"
+              style="width:0.65rem;height:0.65rem;border-radius:999px;background-color:#047857;margin-top:0.55rem;flex-shrink:0;display:block;"></span>
+            <span style="display:block;">Agrotech 2025: Bilan and Enseignements</span>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:0.75rem;color:#475569;box-sizing:border-box;">
+            <span aria-hidden="true"
+              style="width:0.65rem;height:0.65rem;border-radius:999px;background-color:#047857;margin-top:0.55rem;flex-shrink:0;display:block;"></span>
+            <span style="display:block;">Le projet Agrotech 2032</span>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:0.75rem;color:#475569;box-sizing:border-box;">
+            <span aria-hidden="true"
+              style="width:0.65rem;height:0.65rem;border-radius:999px;background-color:#047857;margin-top:0.55rem;flex-shrink:0;display:block;"></span>
+            <span style="display:block;">La Table Ronde des Opportunités de l’Economie Régénérative</span>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:0.75rem;color:#475569;box-sizing:border-box;">
+            <span aria-hidden="true"
+              style="width:0.65rem;height:0.65rem;border-radius:999px;background-color:#047857;margin-top:0.55rem;flex-shrink:0;display:block;"></span>
+            <span style="display:block;">La Parole au Public</span>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:0.75rem;color:#475569;box-sizing:border-box;">
+            <span aria-hidden="true"
+              style="width:0.65rem;height:0.65rem;border-radius:999px;background-color:#047857;margin-top:0.55rem;flex-shrink:0;display:block;"></span>
+            <span style="display:block;">Parcours de Coconstruction</span>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:0.75rem;color:#475569;box-sizing:border-box;">
+            <span aria-hidden="true"
+              style="width:0.65rem;height:0.65rem;border-radius:999px;background-color:#047857;margin-top:0.55rem;flex-shrink:0;display:block;"></span>
+            <span style="display:block;">Cocktail</span>
+          </li>
+        </ul>
+
+        <p
+          style="margin:1.5rem 0 1.5rem;color:#475569;font-size:clamp(1rem,0.75rem + 0.4vw,1.125rem);text-align:justify;text-justify:inter-word;hyphens:auto;max-width:36rem;margin-left:auto;margin-right:auto;">
+          Le programme détaillé vous sera envoyé par mail.</p>
+
+      </section>
+
+      <section
+        style="padding:clamp(2.5rem,3vw,3.5rem) clamp(2rem,4vw,3.5rem);border-top:1px solid #e2e8f0;text-align:center;box-sizing:border-box;">
+
+        <p style="font-size:clamp(1.15rem,0.75rem + 0.5vw,1.35rem);font-style:italic;color:#065f46;margin:0 0 2.5rem;">«
+          Co-construisons à Willems l’avenir de l’innovation agricole. »</p>
+        <a data-cta="true" href="#inscription"
+          style="display:inline-block;padding:1rem 2.75rem;border-radius:0.8rem;color:#ffffff;font-weight:700;font-size:1.05rem;text-decoration:none;box-shadow:0 15px 30px -12px rgba(4,120,87,0.45);">Je
+          confirme ma présence</a>
+      </section>
+
+      <footer
+        style="padding:clamp(2.5rem,3vw,3.5rem) clamp(2rem,4vw,3.5rem);border-top:1px solid #e2e8f0;text-align:center;box-sizing:border-box;">
+        <h2
+          style="margin:0 0 2rem;font-size:clamp(1.5rem,1rem + 1vw,2rem);font-weight:600;color:#334155;font-variant:small-caps;letter-spacing:0.08em;">
+          en partenariat avec</h2>
+        <div data-logo-row
+          style="display:flex;justify-content:center;align-items:center;flex-wrap:wrap;box-sizing:border-box;">
+          <div data-logo-slot>
+            <img data-logo="partner" src="img/logo-euratechnologies.webp" alt="Euratechnologies" loading="lazy"
+              style="max-height:3rem;width:auto;display:block;filter:none;opacity:0.95;" />
+          </div>
+          <div data-logo-slot>
+            <img data-logo="partner" src="img/CDC-Logo.webp" alt="Banque des Territoires" loading="lazy"
+              style="max-height:3rem;width:auto;display:block;filter:none;opacity:0.95;" />
+          </div>
+          <div data-logo-slot>
+            <img data-logo="partner" src="img/logo-bpifrance-le-hub-yellow-hd.webp" alt="Bpifrance" loading="lazy"
+              style="max-height:3rem;width:auto;display:block;filter:none;opacity:0.95;" />
+          </div>
+          <div data-logo-slot>
+            <img data-logo="partner" src="img/CAISSE-DEPARGNE-Nouveau-logo-CEHDF-2-LIGNES-CMJN-PNG-TRANSPARENT.webp"
+              alt="Caisse d'Épargne" loading="lazy"
+              style="max-height:3rem;width:auto;display:block;filter:none;opacity:0.95;" />
+          </div>
+          <div data-logo-slot data-logo-width="wide">
+            <img data-logo="partner" src="img/VALISE-LOGO_ENTREPRISES-ET-CITES-BORDEAUX-BASELINE-bordeaux-1.webp"
+              alt="Entreprises et Cités" loading="lazy"
+              style="max-height:3rem;width:auto;display:block;filter:none;opacity:0.95;" />
+            <span aria-hidden="true"
+              style="display:inline-block;width:1px;height:2.5rem;background-color:rgba(148,163,184,0.3);"></span>
+            <img data-logo="partner" src="img/logo_ird.webp" alt="IRD" loading="lazy"
+              style="max-height:3rem;width:auto;display:block;filter:none;opacity:0.95;" />
+          </div>
+        </div>
+      </footer>
+    </article>
+  </main>
+</body>
+
+</html>
