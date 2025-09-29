@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--Invitation finale - (c) salym.me-->
+<!--Invitation finale - (c) salym.me & Salim Belhaddad -->
 <html lang="fr">
 
 <head>
@@ -214,6 +214,33 @@
         row-gap: 1rem !important;
       }
     }
+
+    /* Header logos two-line layout on wide screens */
+    @media (max-width: 1023px) {
+      /* On small screens, keep single line with wrapping */
+      [data-header-logos] {
+        flex-direction: row !important;
+      }
+      [data-logo-line] {
+        display: contents !important;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      /* On wide screens, arrange in two lines */
+      [data-header-logos] {
+        flex-direction: column !important;
+        gap: 1.25rem !important;
+      }
+      [data-logo-line] {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 1.5rem !important;
+        flex-wrap: nowrap !important;
+        width: auto !important;
+      }
+    }
   </style>
 </head>
 
@@ -235,23 +262,34 @@
         </div>
         <div data-header-logos="true"
           style="display:flex;justify-content:center;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-top:4rem; margin-bottom:1.25rem;box-sizing:border-box;">
-          <div style="display:flex;align-items:center;gap:0.55rem;">
-            <img data-logo="header" src="img/AgroTech.webp" alt="Agrotech" loading="lazy"
-              style="height:3.7rem;width:auto;display:block;filter:none;opacity:0.95;mix-blend-mode:multiply;margin-bottom:1em;" />
-            <span
-              style="font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#065f46;font-size:0.65rem;">Labellisé</span>
-            <img data-logo="header" src="img/Logo-Greentech-Innovation-1.webp" alt="Greentech Innovation" loading="lazy"
-              style="height:3rem;width:auto;max-width:10rem;display:block;filter:none;opacity:0.95;" />
+          <!-- First line of logos -->
+          <div data-logo-line="first" style="display:flex;justify-content:center;align-items:center;gap:1.5rem;flex-wrap:wrap;width:100%;">
+            <div style="display:flex;align-items:center;gap:0.55rem;">
+              <img data-logo="header" src="img/AgroTech.webp" alt="Agrotech" loading="lazy"
+                style="height:3.7rem;width:auto;display:block;filter:none;opacity:0.95;mix-blend-mode:multiply;margin-bottom:1em;" />
+              <span
+                style="font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#065f46;font-size:0.65rem;">Labellisé</span>
+              <img data-logo="header" src="img/Logo-Greentech-Innovation-1.webp" alt="Greentech Innovation" loading="lazy"
+                style="height:3rem;width:auto;max-width:10rem;display:block;filter:none;opacity:0.95;" />
+            </div>
+            <span aria-hidden="true"
+              style="display:inline-block;width:2px;height:2.5rem;background-color:rgba(148,163,184,0.3);"></span>
+            <img data-logo="header" src="img/logo-ville-de-willems.webp" alt="Ville de Willems" loading="lazy"
+              style="height:3rem;width:auto;max-width:8rem;display:block;filter:none;opacity:0.95;mix-blend-mode:multiply;" />
+            <img data-logo="header" src="img/logo-euratechnologies.webp" alt="Euratechnologies" loading="lazy"
+              style="height:3rem;width:auto;max-width:8rem;display:block;filter:none;opacity:0.95;" />
           </div>
-          <span aria-hidden="true"
-            style="display:inline-block;width:2px;height:2.5rem;background-color:rgba(148,163,184,0.3);"></span>
-          <img data-logo="header" src="img/logo-ville-de-willems.webp" alt="Ville de Willems" loading="lazy"
-            style="height:3rem;width:auto;max-width:8rem;display:block;filter:none;opacity:0.95;mix-blend-mode:multiply;" />
-          <img data-logo="header" src="img/logo-mel.webp" alt="Métropole Européenne de Lille" loading="lazy"
-            style="height:3rem;width:auto;max-width:8rem;display:block;filter:none;opacity:0.95;" />
-          <img data-logo="header" src="img/logo-region-hauts-de-france.webp" alt="Région Hauts-de-France" loading="lazy"
-            style="height:2.3rem;width:auto;max-width:12rem;display:block;filter:none;opacity:0.95;" />
+          <!-- Second line of logos -->
+          <div data-logo-line="second" style="display:flex;justify-content:center;align-items:center;gap:1.5rem;flex-wrap:wrap;width:100%;">
+            <img data-logo="header" src="img/logo-mel.webp" alt="Métropole Européenne de Lille" loading="lazy"
+              style="height:3rem;width:auto;max-width:8rem;display:block;filter:none;opacity:0.95;" />
+            <img data-logo="header" src="img/logo-region-hauts-de-france.webp" alt="Région Hauts-de-France" loading="lazy"
+              style="height:2.3rem;width:auto;max-width:12rem;display:block;filter:none;opacity:0.95;" />
+            <img data-logo="header" src="img/logo-chambre-agriculture.webp" alt="Chambre d'Agriculture" loading="lazy"
+              style="height:3rem;width:auto;max-width:8rem;display:block;filter:none;opacity:0.95;" />
+          </div>
         </div>
+        
         <h1
           style="font-size:clamp(1.25rem,2vw + 1rem,1.75rem);font-weight:300;color:#0f172a;max-width:36rem;margin:1.5rem auto;box-sizing:border-box;">
           sont heureux de vous inviter<br>mardi 18 novembre 2025<br>à la présentation du projet</h1>
@@ -271,8 +309,8 @@
         <p
           style="margin:0;font-size:clamp(1rem,0.75rem + 0.4vw,1.125rem);color:#475569;text-align:justify;text-justify:inter-word;hyphens:auto;">
           Depuis 2018, l'incubateur AgroTech d'Euratechnologies à Willems a accompagné le développement de près d'une
-          centaine de startups dans les domaines de l'Agriculture et de la GreenTech. Fort de ce succès, AgroTech
-          ambitionne de devenir à l'horizon 2032 un écosystème territorial pionnier de l'économie régénérative.</p>
+          centaine de startups dans les domaines de l'Agriculture et de l'Éco-Technologie. Fort de ce succès, AgroTech
+          ambitionne de devenir à l'horizon 2032 un écosystème territorial préindustriel pionnier de l'économie régénérative.</p>
       </section>
 
       <section id="calendar"
@@ -390,10 +428,6 @@
         <div data-logo-row
           style="display:flex;justify-content:center;align-items:center;flex-wrap:wrap;box-sizing:border-box;">
           <div data-logo-slot>
-            <img data-logo="partner" src="img/logo-euratechnologies.webp" alt="Euratechnologies" loading="lazy"
-              style="max-height:3rem;width:auto;display:block;filter:none;opacity:0.95;" />
-          </div>
-          <div data-logo-slot>
             <img data-logo="partner" src="img/CDC-Logo.webp" alt="Banque des Territoires" loading="lazy"
               style="max-height:3rem;width:auto;display:block;filter:none;opacity:0.95;" />
           </div>
@@ -402,16 +436,6 @@
               style="max-height:3rem;width:auto;display:block;filter:none;opacity:0.95;" />
           </div>
           <div data-logo-slot>
-            <img data-logo="partner" src="img/CAISSE-DEPARGNE-Nouveau-logo-CEHDF-2-LIGNES-CMJN-PNG-TRANSPARENT.webp"
-              alt="Caisse d'Épargne" loading="lazy"
-              style="max-height:3rem;width:auto;display:block;filter:none;opacity:0.95;" />
-          </div>
-          <div data-logo-slot data-logo-width="wide">
-            <img data-logo="partner" src="img/VALISE-LOGO_ENTREPRISES-ET-CITES-BORDEAUX-BASELINE-bordeaux-1.webp"
-              alt="Entreprises et Cités" loading="lazy"
-              style="max-height:3rem;width:auto;display:block;filter:none;opacity:0.95;" />
-            <span aria-hidden="true"
-              style="display:inline-block;width:1px;height:2.5rem;background-color:rgba(148,163,184,0.3);"></span>
             <img data-logo="partner" src="img/logo_ird.webp" alt="IRD" loading="lazy"
               style="max-height:3rem;width:auto;display:block;filter:none;opacity:0.95;" />
           </div>
