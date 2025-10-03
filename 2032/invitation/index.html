@@ -207,15 +207,15 @@
       */
     }
 
-    /* Partner logos spacing overrides: larger gaps on all screens */
+    /* Partner logos spacing overrides: reduced gaps for tighter layout */
     [data-logo-row] {
-      column-gap: 1.5rem !important;
+      column-gap: 0.5rem !important;
       row-gap: 0.75rem !important;
     }
 
     @media (min-width: 1024px) {
       [data-logo-row] {
-        column-gap: 3rem !important;
+        column-gap: 0.75rem !important;
         row-gap: 1rem !important;
       }
     }
@@ -286,8 +286,6 @@
               style="display:inline-block;width:2px;height:2.5rem;background-color:rgba(148,163,184,0.3);"></span>
             <img data-logo="header" src="https://agrotech2032.fr/invitation/img_web/logo-ville-de-willems.webp" alt="Ville de Willems" loading="lazy"
               style="height:3rem;width:auto;max-width:auto;display:block;filter:none;opacity:0.95;mix-blend-mode:multiply;" />
-            <img data-logo="header" src="https://agrotech2032.fr/invitation/img_web/logo-euratechnologies.webp" alt="Euratechnologies" loading="lazy"
-              style="height:4rem;width:auto;max-width:auto;display:block;filter:none;opacity:0.95;" />
           </div>
           <!-- Second line of logos -->
           <div data-logo-line="second"
@@ -445,6 +443,10 @@
           <div data-logo-slot>
             <img data-logo="partner" src="https://agrotech2032.fr/invitation/img_web/logo-mel.webp" alt="Métropole Européenne de Lille" loading="lazy"
               style="max-height:3rem;max-width:auto;width:auto;display:block;filter:none;opacity:0.95;" />
+          </div>
+          <div data-logo-slot>
+            <img data-logo="partner" src="https://agrotech2032.fr/invitation/img_web/logo-euratechnologies-cropped.png" alt="Euratechnologies" loading="lazy"
+              style="max-height:3.5rem;max-width:auto;width:auto;display:block;filter:none;opacity:0.95;" />
           </div>
         </div>
       </footer>
