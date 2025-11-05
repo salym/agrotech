@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Conditions Générales d'Utilisation - Agrotech 2032" />
+  <title>CGU - Agrotech 2032</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --emerald: #10b981;
+      --emerald-dark: #047857;
+      --emerald-light: #d1fae5;
+      --emerald-bg: #ecfdf5;
+      --orange: #f97316;
+      --slate-50: #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-400: #94a3b8;
+      --slate-500: #64748b;
+      --slate-600: #475569;
+      --slate-700: #334155;
+      --slate-900: #0f172a;
+    }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: var(--slate-100);
+      color: var(--slate-900);
+      line-height: 1.8;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--slate-200);
+      z-index: 1000;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    nav .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      color: var(--emerald-dark);
+      text-decoration: none;
+      font-size: 1.25rem;
+    }
+
+    nav .logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--slate-700);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--emerald);
+    }
+
+    /* Back Button */
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--emerald-dark);
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .back-button:hover {
+      transform: translateX(-5px);
+      color: var(--emerald);
+    }
+
+    /* Main Content */
+    .cgu-container {
+      margin-top: 80px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 4rem 2rem;
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      margin-bottom: 4rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--slate-900);
+      border-bottom: 3px solid var(--emerald);
+      padding-bottom: 1rem;
+    }
+
+    .last-update {
+      color: var(--slate-500);
+      font-size: 0.95rem;
+      margin-bottom: 3rem;
+      font-style: italic;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      color: var(--emerald-dark);
+      border-left: 4px solid var(--emerald);
+      padding-left: 1rem;
+    }
+
+    h3 {
+      font-size: 1.35rem;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      color: var(--slate-700);
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--slate-600);
+      text-align: justify;
+    }
+
+    ul,
+    ol {
+      margin-left: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+      color: var(--slate-600);
+    }
+
+    strong {
+      color: var(--slate-900);
+      font-weight: 600;
+    }
+
+    a {
+      color: var(--emerald);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--emerald-dark);
+      text-decoration: underline;
+    }
+
+    .highlight-box {
+      background: var(--emerald-bg);
+      border-left: 4px solid var(--emerald);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 0.5rem;
+    }
+
+    .highlight-box p {
+      margin: 0;
+      color: var(--emerald-dark);
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--slate-900);
+      color: rgba(255, 255, 255, 0.8);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    footer a {
+      color: var(--emerald-light);
+    }
+
+    footer a:hover {
+      color: var(--emerald);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul {
+        gap: 1rem;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+      }
+
+      .cgu-container {
+        padding: 2rem 1.5rem;
+        margin: 80px 1rem 2rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="https://agrotech2032.fr/invitation/img_web/AgroTech.webp" alt="Agrotech">
+      </a>
+      <ul>
+        <li><a href="index.html#accueil">Accueil</a></li>
+        <li><a href="index.html#projet">Le Projet</a></li>
+        <li><a href="index.html#programme">Programme</a></li>
+        <li><a href="index.html#partenaires">Partenaires</a></li>
+        <li><a href="cgu.html">CGU</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="cgu-container">
+    <a href="index.html" class="back-button">
+      ← Retour à l'accueil
+    </a>
+
+    <h1>Conditions Générales d'Utilisation</h1>
+    <p class="last-update">Dernière mise à jour : 4 novembre 2025</p>
+
+    <p>
+      Bienvenue sur le site web d'Agrotech 2032. En accédant à ce site et en l'utilisant, vous acceptez d'être lié par
+      les présentes conditions générales d'utilisation.
+    </p>
+
+    <h2>1. Objet</h2>
+    <p>
+      Les présentes Conditions Générales d'Utilisation (ci-après « CGU ») ont pour objet de définir les modalités et
+      conditions d'utilisation du site web Agrotech 2032 (ci-après « le Site »), ainsi que les droits et obligations
+      des utilisateurs.
+    </p>
+
+    <h2>2. Mentions légales</h2>
+    <h3>2.1 Éditeur du site</h3>
+    <p>
+      <strong>Agrotech 2032</strong><br>
+      Commune de Willems<br>
+      Pôle ECLAT, Willems, France<br>
+      Email : <a href="mailto:thierryrolland4@gmail.com">thierryrolland4@gmail.com</a>
+    </p>
+
+    <h3>2.2 Hébergement</h3>
+    <p>
+      Le site est hébergé conformément à la réglementation en vigueur.
+    </p>
+
+    <h2>3. Accès au site</h2>
+    <p>
+      Le Site est accessible gratuitement à tout utilisateur disposant d'un accès à Internet. Tous les frais supportés
+      par l'utilisateur pour accéder au service (matériel informatique, logiciels, connexion Internet, etc.) sont à sa
+      charge.
+    </p>
+    <p>
+      L'éditeur met en œuvre tous les moyens raisonnables à sa disposition pour assurer un accès de qualité au Site,
+      mais n'est tenu à aucune obligation d'y parvenir. L'éditeur ne peut être tenu responsable de tout
+      dysfonctionnement du réseau ou des serveurs ou de tout autre événement échappant au contrôle raisonnable, qui
+      empêcherait ou dégraderait l'accès au Site.
+    </p>
+
+    <h2>4. Collecte et traitement des données personnelles</h2>
+    <h3>4.1 Données collectées</h3>
+    <p>
+      Les données personnelles collectées via le formulaire d'inscription (lien Google Forms) sont traitées
+      conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés.
+    </p>
+    <p>
+      Les données collectées peuvent inclure :
+    </p>
+    <ul>
+      <li>Nom et prénom</li>
+      <li>Adresse email</li>
+      <li>Organisation / Entreprise</li>
+      <li>Fonction</li>
+      <li>Numéro de téléphone (optionnel)</li>
+    </ul>
+
+    <h3>4.2 Finalité du traitement</h3>
+    <p>
+      Les données sont collectées pour :
+    </p>
+    <ul>
+      <li>Gérer les inscriptions à l'événement du 18 novembre 2025</li>
+      <li>Communiquer les informations pratiques concernant l'événement</li>
+      <li>Envoyer le programme détaillé</li>
+      <li>Tenir informé des développements du projet Agrotech 2032</li>
+    </ul>
+
+    <h3>4.3 Droits des utilisateurs</h3>
+    <p>
+      Conformément à la réglementation en vigueur, vous disposez des droits suivants :
+    </p>
+    <ul>
+      <li><strong>Droit d'accès :</strong> vous pouvez obtenir la confirmation que des données vous concernant sont ou
+        ne sont pas traitées et, lorsqu'elles le sont, l'accès auxdites données</li>
+      <li><strong>Droit de rectification :</strong> vous pouvez obtenir la rectification des données inexactes vous
+        concernant</li>
+      <li><strong>Droit à l'effacement :</strong> vous pouvez obtenir l'effacement de vos données personnelles</li>
+      <li><strong>Droit à la limitation du traitement :</strong> vous pouvez demander la limitation du traitement de vos
+        données</li>
+      <li><strong>Droit d'opposition :</strong> vous pouvez vous opposer au traitement de vos données</li>
+      <li><strong>Droit à la portabilité :</strong> vous pouvez recevoir vos données dans un format structuré et les
+        transmettre à un autre responsable de traitement</li>
+    </ul>
+    <p>
+      Pour exercer ces droits, vous pouvez contacter : <a
+        href="mailto:thierryrolland4@gmail.com">thierryrolland4@gmail.com</a>
+    </p>
+
+    <h3>4.4 Conservation des données</h3>
+    <p>
+      Les données personnelles sont conservées pour la durée nécessaire à la réalisation des finalités mentionnées
+      ci-dessus, conformément à la réglementation applicable.
+    </p>
+
+    <h2>5. Propriété intellectuelle</h2>
+    <p>
+      L'ensemble du contenu du Site (textes, images, logos, vidéos, icônes, sons, logiciels, etc.) est protégé par les
+      lois relatives à la propriété intellectuelle. Toute reproduction, représentation, modification, publication,
+      transmission, dénaturation, totale ou partielle du Site ou de son contenu, par quelque procédé que ce soit, et sur
+      quelque support que ce soit est interdite sans autorisation préalable écrite de l'éditeur.
+    </p>
+
+    <div class="highlight-box">
+      <p>
+        Les logos et marques des partenaires affichés sur le Site appartiennent à leurs propriétaires respectifs et sont
+        utilisés avec leur autorisation.
+      </p>
+    </div>
+
+    <h2>6. Liens hypertextes</h2>
+    <p>
+      Le Site peut contenir des liens hypertextes vers d'autres sites (notamment le formulaire Google Forms). L'éditeur
+      n'exerce aucun contrôle sur ces sites externes et ne peut être tenu responsable de leur contenu, de leur
+      fonctionnement ou de l'accès à ces sites.
+    </p>
+
+    <h2>7. Responsabilité</h2>
+    <p>
+      L'éditeur s'efforce d'assurer l'exactitude et la mise à jour des informations diffusées sur le Site. Toutefois,
+      l'éditeur ne peut garantir l'exactitude, la précision ou l'exhaustivité des informations mises à disposition sur
+      le Site.
+    </p>
+    <p>
+      L'éditeur ne pourra être tenu responsable des dommages directs ou indirects résultant de l'accès au Site ou de
+      l'utilisation du Site, y compris l'inaccessibilité, les pertes de données, détériorations, destructions ou virus
+      qui pourraient affecter l'équipement informatique de l'utilisateur.
+    </p>
+
+    <h2>8. Cookies</h2>
+    <p>
+      Le Site peut utiliser des cookies pour améliorer l'expérience utilisateur. Un cookie est un fichier texte déposé
+      sur votre ordinateur lors de la visite d'un site. Vous pouvez configurer votre navigateur pour refuser les
+      cookies, mais certaines fonctionnalités du Site pourraient ne pas fonctionner correctement.
+    </p>
+
+    <h2>9. Modification des CGU</h2>
+    <p>
+      L'éditeur se réserve le droit de modifier les présentes CGU à tout moment. Les CGU modifiées seront applicables
+      dès leur mise en ligne. Il est conseillé aux utilisateurs de consulter régulièrement les CGU.
+    </p>
+
+    <h2>10. Droit applicable et juridiction compétente</h2>
+    <p>
+      Les présentes CGU sont régies par le droit français. En cas de litige relatif à l'interprétation ou à l'exécution
+      des présentes, et à défaut d'accord amiable, les tribunaux français seront seuls compétents.
+    </p>
+
+    <h2>11. Contact</h2>
+    <p>
+      Pour toute question concernant les présentes CGU ou le Site, vous pouvez nous contacter à l'adresse suivante :
+    </p>
+    <p>
+      <strong>Email :</strong> <a href="mailto:thierryrolland4@gmail.com">thierryrolland4@gmail.com</a>
+    </p>
+
+    <div class="highlight-box" style="margin-top: 3rem;">
+      <p>
+        <strong>Important :</strong> En vous inscrivant à l'événement du 18 novembre 2025 via le formulaire Google
+        Forms, vous acceptez les présentes Conditions Générales d'Utilisation ainsi que la politique de traitement des
+        données personnelles.
+      </p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2025 Agrotech 2032 - Tous droits réservés</p>
+      <p style="margin-top: 0.5rem;">
+        <a href="index.html">Retour à l'accueil</a> |
+        <a href="mailto:thierryrolland4@gmail.com">Contact</a>
+      </p>
+    </div>
+  </footer>
+</body>
+
+</html>
