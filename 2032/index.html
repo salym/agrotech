@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Agrotech 2032 - Le premier écosystème régénératif du Nord de l'Europe">
+  <title>Agrotech 2032 - Écosystème Régénératif</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --emerald-50: #ecfdf5;
+      --emerald-100: #d1fae5;
+      --emerald-200: #a7f3d0;
+      --emerald-500: #10b981;
+      --emerald-600: #059669;
+      --emerald-700: #047857;
+      --emerald-800: #065f46;
+      --emerald-900: #064e3b;
+      --orange-500: #f97316;
+      --orange-600: #ea580c;
+      --sky-50: #f0f9ff;
+      --sky-100: #e0f2fe;
+      --slate-50: #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-300: #cbd5e1;
+      --slate-400: #94a3b8;
+      --slate-500: #64748b;
+      --slate-600: #475569;
+      --slate-700: #334155;
+      --slate-800: #1e293b;
+      --slate-900: #0f172a;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--slate-900);
+      line-height: 1.7;
+      background: #fff;
+      overflow-x: hidden;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+      z-index: 1000;
+      padding: 1rem 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    nav.scrolled {
+      padding: 0.75rem 0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--emerald-700);
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .logo img {
+      height: 42px;
+      width: auto;
+      margin-right: 0.5rem;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--slate-700);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a:not(.btn-nav)::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--emerald-500);
+      transition: width 0.3s ease;
+    }
+
+    nav a:not(.btn-nav):hover::after {
+      width: 100%;
+    }
+
+    nav a:hover {
+      color: var(--emerald-600);
+    }
+
+    .btn-nav {
+      background: linear-gradient(135deg, var(--emerald-500) 0%, var(--emerald-600) 100%);
+      color: white !important;
+      padding: 0.6rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+
+    .btn-nav:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+      background: linear-gradient(135deg, var(--emerald-600) 0%, var(--emerald-700) 100%);
+    }
+
+    /* Hero Section */
+    .hero {
+      margin-top: 80px;
+      min-height: 90vh;
+      background: linear-gradient(135deg, var(--emerald-50) 0%, var(--sky-50) 50%, #ffffff 100%);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      top: -200px;
+      right: -200px;
+      animation: float 20s ease-in-out infinite;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      bottom: -100px;
+      left: -100px;
+      animation: float 15s ease-in-out infinite reverse;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(30px, -30px) rotate(120deg); }
+      66% { transform: translate(-20px, 20px) rotate(240deg); }
+    }
+
+    .hero-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(3rem, 6vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--emerald-700) 0%, var(--emerald-500) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-content .subtitle {
+      font-size: clamp(1.25rem, 2vw, 1.5rem);
+      color: var(--slate-600);
+      margin-bottom: 2rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .hero-content .tagline {
+      font-size: 1.125rem;
+      color: var(--slate-500);
+      margin-bottom: 3rem;
+      line-height: 1.8;
+    }
+
+    .hero-image {
+      position: relative;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 30px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+      transition: transform 0.5s ease;
+    }
+
+    .hero-image:hover img {
+      transform: scale(1.02) translateY(-5px);
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary, .btn-secondary {
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--emerald-500) 0%, var(--emerald-600) 100%);
+      color: white;
+      box-shadow: 0 8px 25px rgba(16, 185, 129, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(16, 185, 129, 0.45);
+      background: linear-gradient(135deg, var(--emerald-600) 0%, var(--emerald-700) 100%);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--emerald-600);
+      border: 2px solid var(--emerald-500);
+    }
+
+    .btn-secondary:hover {
+      background: var(--emerald-50);
+      transform: translateY(-3px);
+    }
+
+    /* CTA effect identical to invitation mail */
+    a[data-cta] {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      overflow: hidden;
+      transition: background-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+      background-color: #10b981 !important; /* base lighter emerald */
+      color: #ffffff !important; /* readable text */
+      text-decoration: none !important;
+      border: none !important;
+      isolation: isolate;
+    }
+
+    a[data-cta]::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -60%;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0) 100%);
+      transform: skewX(-20deg) translateX(-100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    a[data-cta]:hover,
+    a[data-cta]:focus {
+      background-color: #f97316 !important; /* orange */
+      transform: translateY(-2px);
+      box-shadow: 0 22px 40px -18px rgba(249, 115, 22, 0.55);
+      color: #ffffff !important;
+    }
+
+    /* Ensure nav & primary CTA look identical when using data-cta */
+    .btn-nav[data-cta], .btn-primary[data-cta] {
+      background: #10b981 !important;
+      background-image: none !important; /* cancel gradient */
+      color: #ffffff !important;
+      border: none !important;
+      box-shadow: none !important; /* match mail: no shadow at rest */
+    }
+    .btn-nav[data-cta]:hover, .btn-primary[data-cta]:hover,
+    .btn-nav[data-cta]:focus, .btn-primary[data-cta]:focus {
+      background: #f97316 !important;
+      background-image: none !important; /* ensure solid orange */
+      color: #ffffff !important;
+      box-shadow: 0 22px 40px -18px rgba(249,115,22,.55) !important;
+    }
+
+    a[data-cta]:hover::after,
+    a[data-cta]:focus::after {
+      animation: cta-shine 1.7s cubic-bezier(.22, .61, .36, 1) forwards;
+    }
+
+    @keyframes cta-shine {
+      0% { transform: skewX(-20deg) translateX(-100%); opacity: 0; }
+      15% { opacity: 0.9; }
+      100% { transform: skewX(-20deg) translateX(520%); opacity: 0; }
+    }
+
+    /* Organizers Section */
+    .organizers {
+      padding: 4rem 2rem;
+      background: white;
+      border-bottom: 1px solid var(--slate-100);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--emerald-600);
+      margin-bottom: 3rem;
+    }
+
+    .stats-grid {
+      /* align stats on a single row when there's space; wrap beneath when constrained (no horizontal scroll) */
+      display: flex;
+      flex-wrap: wrap; /* allow items to flow to next line when space is tight */
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      justify-content: center; /* center the whole group */
+      align-items: flex-start; /* align items by their top edge */
+    }
+
+    /* Explicit placement to ensure 3 on row 1, 4 on row 2 */
+    .logos-grid.two-rows img:nth-child(1) { grid-column: 1; }
+    .logos-grid.two-rows img:nth-child(2) { grid-column: 2; }
+    .logos-grid.two-rows img:nth-child(3) { grid-column: 3; }
+    .logos-grid.two-rows img:nth-child(4) { grid-column: 1; } /* Région HDF démarre la 2e ligne */
+    .logos-grid.two-rows img:nth-child(5) { grid-column: 2; }
+    .logos-grid.two-rows img:nth-child(6) { grid-column: 3; }
+    .logos-grid.two-rows img:nth-child(7) { grid-column: 4; } /* CCI sur la même 2e ligne */
+    
+    .logos-grid.partners-grid {
+      /* Equal-width columns to avoid oversized gaps around mid logo (e.g., IRD) */
+      display: grid;
+      grid-template-columns: repeat(3, minmax(220px, 1fr));
+      justify-content: center;
+      justify-items: center;
+      align-items: center;
+      gap: 2rem 2.5rem;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .logos-grid.partners-grid img { height: 50px !important; width: auto; }
+    .logos-grid.two-rows img { height: 56px; width: auto; }
+
+    .logos-grid img {
+      height: 50px;
+      width: auto;
+      object-fit: contain;
+      opacity: 0.8;
+      filter: grayscale(20%);
+      transition: all 0.4s ease;
+    }
+
+    .logos-grid img:hover {
+      opacity: 1;
+      filter: grayscale(0%);
+      transform: scale(1.08);
+    }
+
+    /* Explicit two-row organizers layout for perfect centering */
+    .logos-rows {
+      display: grid;
+      gap: 2rem 0;
+      justify-items: center;
+    }
+    .logos-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 3rem 4rem;
+      max-width: 1100px;
+    }
+    .logos-row img {
+      height: 56px;
+      width: auto;
+      object-fit: contain;
+      opacity: 0.85;
+      filter: grayscale(20%);
+      transition: all 0.4s ease;
+    }
+    /* Finer control: reduce specific logo heights to harmonize line */
+    .logos-row img.logo-hdf,
+    .logos-row img.logo-cci {
+      height: 48px; /* adjust here if needed */
+    }
+    .logos-row img:hover {
+      opacity: 1;
+      filter: grayscale(0%);
+      transform: scale(1.08);
+    }
+
+    /* Section styles */
+    section {
+      padding: 6rem 2rem;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      color: var(--slate-900);
+    }
+
+    h3 {
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      font-weight: 700;
+      color: var(--emerald-700);
+      margin-bottom: 1rem;
+    }
+
+    .section-intro {
+      font-size: 1.25rem;
+      color: var(--slate-600);
+      max-width: 800px;
+      margin: 0 auto 4rem;
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    /* Vision Section with Image */
+    .vision-section {
+      background: linear-gradient(to bottom, #fff 0%, var(--slate-50) 100%);
+    }
+
+    .vision-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      margin-bottom: 5rem;
+    }
+
+    .vision-text p {
+      font-size: 1.125rem;
+      color: var(--slate-600);
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+
+    .vision-image {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+    }
+
+    .vision-image img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .vision-image:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+      margin-top: 4rem;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 20px;
+      border: 1px solid var(--slate-100);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--emerald-500), var(--emerald-600));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .feature-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      border-color: var(--emerald-200);
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--slate-900);
+    }
+
+    .feature-card p {
+      color: var(--slate-600);
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    /* Stats Section */
+    .stats-section {
+      background: linear-gradient(135deg, var(--emerald-700) 0%, var(--emerald-600) 50%, var(--emerald-500) 100%);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stats-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>');
+      opacity: 0.4;
+    }
+
+    .stats-container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .stats-section h2 {
+      color: white;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .stats-section .section-intro {
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 4rem;
+    }
+
+    .stats-grid {
+      /* align stats on a single row when there's space; wrap beneath when constrained (no horizontal scroll) */
+      display: flex;
+      flex-wrap: wrap; /* allow items to flow to next line when space is tight */
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      justify-content: center; /* center the whole group */
+      align-items: flex-start; /* align items by their top edge */
+      overflow: visible; /* no horizontal scroll */
+    }
+
+    .stat-item {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; /* align content to top/left so all numbers line up */
+      justify-content: flex-start;
+      min-width: 160px;
+      flex: 0 1 180px;
+      box-sizing: border-box;
+      overflow: hidden; /* avoid visual overflow from large logos */
+      max-width: 220px;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 600;
+      color: var(--emerald-100);
+      margin-bottom: 0.5rem;
+      display: block;
+      align-self: center; /* center number horizontally within each stat-item */
+    }
+
+    .stat-label {
+      font-size: 1.125rem;
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 500;
+      display: block;
+      width: 100%;
+      text-align: center; /* keep label centered under the number */
+      align-self: center;
+    }
+
+  /* Ensure stat items keep a sensible minimum width to avoid chopping words */
+  .stat-item { min-width: 200px; }
+  .stat-label { word-break: break-word; white-space: normal; hyphens: auto; }
+    /* Small logos used alongside stat labels (CNES, Euratechnologies, Agrotech) */
+    /* Default: block-centered and constrained to avoid overflow */
+    .stat-logo {
+      height: auto;
+      width: auto;
+      max-width: 140px;
+      display: block;
+      margin: 0 auto 0;
+    }
+
+    /* When the logo is inline inside the label (short text + logo), keep it inline but constrained */
+    .stat-label .stat-logo {
+      display: inline-block;
+      margin: 0 0 0 0.35rem;
+      max-width: 120px;
+    }
+
+    .stat-sublabel {
+      display: block;
+      margin-top: 0.35rem;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.9);
+      font-weight: 500;
+      text-align: center; /* center the CNES text and logo */
+      width: 100%;
+      align-self: center;
+    }
+
+    .stat-sublabel img {
+      display: block;
+      margin: 0.45rem auto 0; /* center the logo under the label */
+      height: 32px;
+      width: auto;
+      max-width: 120px;
+    }
+
+    /* when a stat-logo appears inside a stat-sublabel, ensure it is centered */
+    .stat-sublabel .stat-logo {
+      margin-left: 0;
+      margin-top: 0.45rem;
+      display: block;
+      margin: 0.45rem auto 0;
+    }
+
+    /* Make each stat-item appear in a subtle box and constrain size to avoid overflow */
+    .stat-item {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.09);
+  padding: 0.6rem 0.9rem;
+      border-radius: 12px;
+      overflow: hidden; /* prevent logos from visually overflowing the box */
+      box-sizing: border-box;
+      max-width: 220px; /* keeps wide logos from pushing the row past container */
+    }
+
+    /* Success Stories */
+    .success-section {
+      background: white;
+    }
+
+    .success-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 3rem;
+    }
+
+    .success-card {
+      background: linear-gradient(135deg, var(--emerald-50) 0%, white 100%);
+      padding: 3rem;
+      border-radius: 20px;
+      border: 1px solid var(--emerald-100);
+      transition: all 0.4s ease;
+    }
+
+    .success-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px rgba(16, 185, 129, 0.15);
+    }
+
+    .success-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .success-card h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .success-card p {
+      color: var(--slate-600);
+      line-height: 1.8;
+      font-size: 1.0625rem;
+    }
+
+    /* Make success icons clickable while preserving visual style */
+    .success-card a.success-link {
+      text-decoration: none;
+      color: inherit;
+      display: inline-block;
+    }
+
+    .success-card a.success-link .success-icon {
+      cursor: pointer;
+    }
+
+    /* External link icon (placed to the right of the company name) */
+    .success-card h3 {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .success-card a.external-link {
+      color: var(--emerald-700);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      font-size: 1rem;
+      transition: color 0.15s ease, transform 0.15s ease;
+    }
+
+    .success-card a.external-link:hover {
+      color: var(--emerald-600);
+      transform: translateY(-2px);
+    }
+
+    .success-card .external-icon {
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    /* Space between decorative icon and company name */
+    .success-card .success-icon {
+      margin-right: 1.4rem;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    /* SVG sizing and color inheritance for external link icon */
+    .success-card .external-icon svg {
+      width: 1em;
+      height: 1em;
+      display: inline-block;
+      vertical-align: middle;
+      fill: currentColor;
+    }
+
+    /* Company logo used in success-cards (replaces decorative emoji) */
+    .company-logo {
+      height: 48px;
+      width: auto;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    /* Slightly larger mark for Vitamin Herb logo and spacing to the text */
+    .company-logo.vitaminherb {
+      height: 56px; /* increase to match original aspect and avoid cropping */
+      width: auto;
+      margin-right: 0.6rem; /* small spacing between icon and text */
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    /* Textual logo for companies without an image (vitamin herb) */
+    .text-logo {
+      font-family: 'Montserrat', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      font-weight: 700;
+      font-size: 1.5rem; /* increased per request */
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      line-height: 1;
+    }
+
+    .text-logo .logo-vitamin {
+      color: #0f4534; /* green */
+    }
+
+    .text-logo .logo-herb {
+      color: #a5c71c; /* lime */
+    }
+
+    /* Comparison Section */
+    .comparison-section {
+      background: linear-gradient(to bottom, var(--slate-50) 0%, white 100%);
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 4rem;
+    }
+
+    .comparison-card {
+      padding: 3rem;
+      border-radius: 25px;
+      text-align: center;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .comparison-card.old {
+      background: linear-gradient(135deg, var(--slate-100) 0%, var(--slate-50) 100%);
+      border: 2px solid var(--slate-200);
+    }
+
+    .comparison-card.new {
+      background: linear-gradient(135deg, var(--emerald-500) 0%, var(--emerald-600) 100%);
+      color: white;
+      box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
+    }
+
+    .comparison-card:hover {
+      transform: scale(1.03);
+    }
+
+    .comparison-card h3 {
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+      color: inherit;
+    }
+
+    .comparison-card.new h3 {
+      color: white;
+    }
+
+    .comparison-time {
+      font-size: 4rem;
+      font-weight: 800;
+      margin: 1.5rem 0;
+    }
+
+    .comparison-card.old .comparison-time {
+      color: var(--slate-700);
+    }
+
+    .comparison-card.new .comparison-time {
+      color: var(--emerald-50);
+    }
+
+    .comparison-card p {
+      font-size: 1.0625rem;
+      line-height: 1.7;
+    }
+
+    .comparison-highlight {
+      max-width: 900px;
+      margin: 4rem auto 0;
+      text-align: center;
+      font-size: 1.375rem;
+      font-weight: 600;
+      color: var(--emerald-700);
+      padding: 2rem;
+      background: var(--emerald-50);
+      border-radius: 20px;
+      border-left: 4px solid var(--emerald-500);
+    }
+
+    /* Examples Section */
+    .examples-section {
+      background: white;
+    }
+
+    .examples-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+      gap: 3rem;
+      margin-top: 4rem;
+    }
+
+    .example-card {
+      background: white;
+      padding: 3rem;
+      border-radius: 25px;
+      border: 2px solid var(--slate-200);
+      transition: all 0.4s ease;
+    }
+
+    .example-card:hover {
+      border-color: var(--emerald-500);
+      box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);
+      transform: translateY(-5px);
+    }
+
+    .example-badge {
+      display: inline-block;
+      background: var(--emerald-100);
+      color: var(--emerald-700);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .example-card h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .example-card > p {
+      color: var(--slate-600);
+      margin-bottom: 1.5rem;
+      font-size: 1.0625rem;
+    }
+
+    .example-stats {
+      list-style: none;
+      border-top: 2px solid var(--slate-100);
+      padding-top: 1.5rem;
+    }
+
+    .example-stats li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.875rem 0;
+      border-bottom: 1px solid var(--slate-100);
+      font-size: 1rem;
+    }
+
+    .example-stats li:last-child {
+      border-bottom: none;
+    }
+
+    .example-stats strong {
+      color: var(--slate-900);
+      font-weight: 600;
+    }
+
+    .example-stats span {
+      color: var(--emerald-600);
+      font-weight: 600;
+    }
+
+    /* Pillars Section */
+    .pillars-section {
+      background: linear-gradient(to bottom, var(--slate-50) 0%, white 100%);
+    }
+
+    .pillars-list {
+      list-style: none;
+      max-width: 1000px;
+      margin: 4rem auto 0;
+      counter-reset: pillar;
+    }
+
+    .pillar-item {
+      counter-increment: pillar;
+      position: relative;
+      padding: 3rem 3rem 3rem 6rem;
+      margin-bottom: 2.5rem;
+      background: white;
+      border-radius: 20px;
+      border-left: 4px solid var(--emerald-500);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      transition: all 0.4s ease;
+    }
+
+    .pillar-item:hover {
+      transform: translateX(10px);
+      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.15);
+    }
+
+    .pillar-item::before {
+      content: counter(pillar);
+      position: absolute;
+      left: 2rem;
+      top: 3rem;
+      width: 3.5rem;
+      height: 3.5rem;
+      background: linear-gradient(135deg, var(--emerald-500) 0%, var(--emerald-600) 100%);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+
+    .pillar-item strong {
+      display: block;
+      font-size: 1.375rem;
+      color: var(--emerald-700);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .pillar-item p {
+      color: var(--slate-600);
+      line-height: 1.8;
+      font-size: 1.0625rem;
+      margin: 0;
+    }
+
+    /* Quote Section */
+    .quote-section {
+      background: linear-gradient(135deg, var(--emerald-50) 0%, var(--sky-50) 100%);
+      padding: 6rem 2rem;
+    }
+
+    .quote-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    blockquote {
+      font-size: 1.75rem;
+      font-style: italic;
+      color: var(--emerald-800);
+      line-height: 1.6;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    blockquote::before {
+      content: '"';
+      font-size: 6rem;
+      position: absolute;
+      top: -2rem;
+      left: -1rem;
+      color: var(--emerald-200);
+      font-family: Georgia, serif;
+    }
+
+    cite {
+      display: block;
+      font-size: 1.125rem;
+      color: var(--slate-700);
+      font-style: normal;
+      font-weight: 600;
+      margin-top: 1.5rem;
+    }
+
+    /* Opportunity Section */
+    .opportunity-section {
+      background: white;
+    }
+
+    .opportunity-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .opportunity-content p {
+      font-size: 1.125rem;
+      color: var(--slate-600);
+      margin-bottom: 2rem;
+      line-height: 1.9;
+    }
+
+    .opportunity-highlight {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--emerald-700);
+      margin: 3rem 0;
+      padding: 2.5rem;
+      background: linear-gradient(135deg, var(--emerald-50) 0%, var(--sky-50) 100%);
+      border-radius: 20px;
+      line-height: 1.6;
+    }
+
+    /* Vision 2035 */
+    .vision-2035 {
+      background: linear-gradient(135deg, var(--slate-900) 0%, var(--slate-800) 100%);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vision-2035::before {
+      content: '';
+      position: absolute;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      top: -400px;
+      right: -400px;
+    }
+
+    .vision-2035 h2 {
+      color: white;
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, var(--emerald-600) 0%, var(--emerald-700) 100%);
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="1.5" fill="rgba(255,255,255,0.08)"/></svg>');
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-section h2 {
+      color: white;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-section p {
+      font-size: 1.25rem;
+      color: rgba(255, 255, 255, 0.95);
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      line-height: 1.8;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .cta-buttons .btn-primary {
+      background: white;
+      color: var(--emerald-600);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta-buttons .btn-primary:hover {
+      background: var(--emerald-50);
+      color: var(--emerald-700);
+    }
+
+    .cta-buttons .btn-secondary {
+      background: transparent;
+      color: white;
+      border-color: white;
+    }
+
+    .cta-buttons .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Partners */
+    .partners-section {
+      background: var(--slate-50);
+      padding: 5rem 2rem;
+    }
+
+    .partners-section h2 {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--slate-900);
+      color: rgba(255, 255, 255, 0.8);
+      padding: 4rem 2rem 2rem;
+    }
+
+    .footer-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .footer-content h3 {
+      color: white;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-content p {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 2rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--emerald-300);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-weight: 500;
+    }
+
+    .footer-links a:hover {
+      color: var(--emerald-200);
+    }
+
+    .footer-bottom {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .hero-image {
+        order: -1;
+      }
+
+      .vision-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .comparison-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .examples-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .success-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        gap: 1rem;
+        font-size: 0.875rem;
+      }
+
+      .btn-nav {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+      }
+
+      section {
+        padding: 4rem 1.5rem;
+      }
+
+      .pillar-item {
+        padding: 2.5rem 2rem 2.5rem 5rem;
+      }
+
+      .pillar-item::before {
+        width: 3rem;
+        height: 3rem;
+        left: 1.5rem;
+        top: 2.5rem;
+        font-size: 1.25rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn-primary, .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+      }
+
+      blockquote {
+        font-size: 1.35rem;
+      }
+      /* Responsive behaviour for stats: allow wrapping on small screens */
+      .stats-grid {
+        flex-wrap: wrap;
+        gap: 1.25rem;
+      }
+
+      .stat-item {
+        flex: 1 1 45%;
+        min-width: 140px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <img src="https://agrotech2032.fr/img/AgroTech.webp" alt="Agrotech">
+      </a>
+      <ul>
+        <li><a href="#vision">Vision</a></li>
+        <li><a href="#projet">Le Projet</a></li>
+        <li><a href="#ecosysteme">Écosystème</a></li>
+        <li><a href="#rejoindre">Nous Rejoindre</a></li>
+  <li><a href="evenement.html" class="btn-nav btn-invite" data-cta="true">Événement 18 Nov →</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <!--<h1>AGROTECH 2032</h1>-->
+        <img src="https://agrotech2032.fr/img/event-logo.png" alt="Agrotech 2032">
+        <p class="subtitle">Le Premier Écosystème Régénératif du Nord de l'Europe</p>
+        <p class="tagline">Accélérer la transition de l'économie régénérative en créant des activités profitables et durables pour le territoire</p>
+        <div class="cta-group">
+          <a href="evenement.html" class="btn-primary">Découvrir le projet →</a>
+          <a href="#rejoindre" class="btn-secondary">Nous rejoindre</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=80" alt="Agriculture innovante">
+      </div>
+    </div>
+  </section>
+
+  <!-- Organizers -->
+  <div class="organizers">
+    <p class="section-title">Un projet porté par</p>
+    <div class="logos-rows">
+      <div class="logos-row">
+        <img src="https://agrotech2032.fr/img/AgroTech.webp" alt="Agrotech" style="height: 60px;">
+        <img src="https://agrotech2032.fr/img/Logo-Greentech-Innovation-1.webp" alt="Greentech Innovation">
+        <img src="https://agrotech2032.fr/img/logo-ville-de-willems.webp" alt="Ville de Willems">
+      </div>
+      <div class="logos-row">
+        <img class="logo-hdf" src="https://agrotech2032.fr/img/logo-region-hauts-de-france.webp" alt="Région Hauts-de-France">
+        <img src="https://agrotech2032.fr/img/logo-rev3-horizontal.png" alt="REV3">
+        <img src="https://agrotech2032.fr/img/CA_NORD-PAS-DE-CALAIS_H_RVB.webp" alt="Chambre d'Agriculture" style="height: 55px;">
+        <img class="logo-cci" src="https://agrotech2032.fr/img/logo-cci-hdf.webp" alt="CCI Hauts-de-France">
+      </div>
+    </div>
+  </div>
+
+  <!-- Vision Section -->
+  <section id="vision" class="vision-section">
+    <div class="container">
+      <h2 style="text-align: center;">Découvrez - Interagissez !</h2>
+      <p class="section-intro">La prochaine étape de notre écosystème innovant régénératif dans les domaines du <strong>Vivant</strong>, de l'<strong>Agriculture</strong> et de la <strong>Pré-industrialisation</strong> se dessine avec vous.</p>
+      
+      <div class="vision-content">
+        <div class="vision-text">
+          <p>En 7 ans, nous avons accompagné une centaine de projets dans l’agriculture, les sciences du vivant, la régénération.</p>
+
+          <p>Nous avons appris des réalités scientifiques et humaines, des expérimentations, de l’énergie d’entreprendre nécessaire à ce qui touche à la transition.</p>
+
+          <p>Nous avons pris conscience qu’il nous fallait aller plus loin…</p>
+
+          <h3>Notre ambition</h3>
+
+          <p>Agrotech veut répondre plus largement aux défis de la transition, de la souveraineté, de la réindustrialisation avec une approche plus complète, plus efficace, qui engendre un véritable développement territorial : devenir l’écosystème territorial de l'économie régénérative à vocation préindustrielle.</p>
+        </div>
+        <div class="vision-image">
+          <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=800&q=80" alt="Innovation verte">
+        </div>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <span class="feature-icon">⏱️</span>
+          <h3>Accompagnement Long Terme</h3>
+          <p>8 à 12 ans d'accompagnement pour correspondre aux enjeux du vivant et favoriser la transformation industrielle des entreprises</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🏭</span>
+          <h3>Infrastructures Adaptées</h3>
+          <p>Laboratoires, salles blanches, fablabs et bâtiments d'accueil pour capitaliser et créer durablement l'effet d'intensité</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">💰</span>
+          <h3>Des Atouts Exceptionnels</h3>
+          <p>Willems dispose d’une réserve foncière constructible significative. Plusieurs investisseurs institutionnels français et européens se sont déjà positionnés.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🔄</span>
+          <h3>Économie Circulaire</h3>
+          <p>Dynamique d'animation et d'innovation adaptée aux enjeux du vivant, de l'industrie et des business models multicapitaux</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🤝</span>
+          <h3>Partenariats Territoriaux</h3>
+          <p>Synergies multiples entre les entreprises de croissance (startups) et les organisations du territoire</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🌍</span>
+          <h3>Dimension Internationale</h3>
+          <p>Connectée aux écosystèmes internationaux en perpétuelle évolution pour favoriser l'innovation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="container stats-container">
+      <h2>7 ans de Dynamique d'Innovation</h2>
+      <p class="section-intro">En partenariat avec la MEL, la Région Hauts-de-France et Euratechnologies, Agrotech Willems a accueilli dans son parcours incubation-accélération près d'une centaine de startups en 7 ans sur des formats innovants portés par des événements inspirants comme AGROSPACE en 2021.</p>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number">~100</span>
+          <span class="stat-label">Startups accompagnées</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">7</span>
+          <span class="stat-label">Années d'expérience</span>
+        </div>
+          <div class="stat-item">
+            <span class="stat-number">2020</span>
+            <span class="stat-label">Les 2 ans d'Agrotech
+              <img src="https://agrotech2032.fr/img/logo-euratechnologies-cropped.png" alt="Euratechnologies" class="stat-logo">
+            </span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">2021</span>
+            <span class="stat-label">AGROSPACE<br>avec le CNES</span>
+            <span class="stat-sublabel"><img src="https://agrotech2032.fr/img/cnes.png" alt="CNES" class="stat-logo"></span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">2026</span>
+            <span class="stat-label">AGROTECH2032
+              <img src="https://agrotech2032.fr/img/event-logo.png" alt="Agrotech 2032 - événement" class="stat-logo">
+            </span>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Success Stories -->
+  <section class="success-section">
+    <div class="container">
+      <h2 style="text-align: center;">Success Stories</h2>
+      <p class="section-intro">Des entreprises emblématiques qui illustrent la capacité d'Agrotech à produire des « pépites » associant technologies du vivant et savoir-faire industriel.</p>
+      <div class="success-grid">
+        <div class="success-card">
+          <h3>
+            <img src="https://agrotech2032.fr/img/Logo_bioteos.svg" alt="BIOTEOS" class="company-logo bioteos">
+            <a href="https://www.bioteos.com/" target="_blank" rel="noopener noreferrer" class="external-link" aria-label="Ouvrir le site de Bioteos dans un nouvel onglet">
+              <span class="external-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" role="img">
+                  <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"></path>
+                  <path d="M5 5h6v2H7v10h10v-4h2v6H5V5z"></path>
+                </svg>
+              </span>
+            </a>
+          </h3>
+          <p>Créatrice d'un procédé innovant qui purifie l'air par les microalgues. En associant technologies du vivant et savoir-faire industriel, Bioteos illustre parfaitement les Greentech qui nécessitent plusieurs années pour entrer en phase de croissance.</p>
+        </div>
+        <div class="success-card">
+          <h3>
+            <img src="https://agrotech2032.fr/img/Logo_karnott.svg" alt="KARNOTT" class="company-logo karnott">
+            <a href="https://www.karnott.fr/" target="_blank" rel="noopener noreferrer" class="external-link" aria-label="Ouvrir le site de Karnott dans un nouvel onglet">
+              <span class="external-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" role="img">
+                  <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"></path>
+                  <path d="M5 5h6v2H7v10h10v-4h2v6H5V5z"></path>
+                </svg>
+              </span>
+            </a>
+          </h3>
+          <p>A développé un système de suivi automatisé des travaux agricoles et viticoles permettant de simplifier significativement le travail des agriculteurs et de maîtriser les coûts liés au matériel.</p>
+        </div>
+        <div class="success-card">
+          <h3>
+              <img src="https://agrotech2032.fr/img/logo_vitaminherb.svg" alt="Vitamin Herb" class="company-logo vitaminherb">
+            <span class="text-logo" aria-hidden="true">
+              <span class="logo-vitamin">vitamin</span>
+              <span class="logo-herb"> herb</span>
+            </span>
+            <a href="https://vitaminherb.fr/" target="_blank" rel="noopener noreferrer" class="external-link" aria-label="Ouvrir le site de Vitamin Herb dans un nouvel onglet">
+              <span class="external-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" role="img">
+                  <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"></path>
+                  <path d="M5 5h6v2H7v10h10v-4h2v6H5V5z"></path>
+                </svg>
+              </span>
+            </a>
+          </h3>
+          <p>Produit des herbes aromatiques en serre et les distribue en circuits courts, favorisant un approvisionnement local et de qualité.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Section -->
+  <section id="ecosysteme" class="comparison-section">
+    <div class="container">
+      <h2 style="text-align: center;">D'un "Incubateur Tech" à un "Écosystème Régénératif"</h2>
+      <div class="comparison-grid">
+        <div class="comparison-card old">
+          <h3>Incubateur Tech</h3>
+          <div class="comparison-time">de 1 à 2 ans</div>
+          <p>Accompagne les premiers stades de la genèse des entreprises (pré-création, création, amorçage). Durée courte pour optimiser les coûts.</p>
+        </div>
+        <div class="comparison-card new">
+          <h3>Écosystème Régénératif</h3>
+          <div class="comparison-time">de 4 à 12 ans</div>
+          <p>Accompagne de l'émergence au développement long terme. Les entreprises créent des emplois, deviennent rentables, contribuent au territoire et développent des synergies.</p>
+        </div>
+      </div>
+      <div class="comparison-highlight">
+        Pour les entreprises associant science du vivant, économie régénérative et industrialisation, notre conviction est qu'il vaut <strong>mieux accompagner, avec plus d'équipements, les entreprises plus longtemps.</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- Examples Section -->
+  <section class="examples-section">
+    <div class="container">
+      <h2 style="text-align: center;">Exemples Inspirants</h2>
+      <p class="section-intro">Nous avons exploré ce qui se développe ailleurs, en France, au Canada, en Asie du Sud-Est. Une tendance forte émerge : les écosystèmes à trajectoire longue avec un modèle économique porté par les synergies entre les différentes générations d'entreprises qui s'ancrent sur un même territoire.</p>
+      
+      <div class="examples-grid">
+        <div class="example-card">
+          <span class="example-badge">🇨🇦 Canada - Montréal</span>
+          <h3>Zone Agtech</h3>
+          <p>Cet écosystème innovant né en 2021 près de Montréal représente un modèle ambitieux d'accompagnement long terme avec un engagement fort des entreprises.</p>
+          <ul class="example-stats">
+            <li><strong>Budget</strong> <span>400 M$</span></li>
+            <li><strong>Surface</strong> <span>15 km²</span></li>
+            <li><strong>Durée minimale</strong> <span>5 ans sur site</span></li>
+            <li><strong>Modèle économique</strong> <span>Très incitatif</span></li>
+          </ul>
+        </div>
+        <div class="example-card">
+          <span class="example-badge">🇭🇰 Hong Kong</span>
+          <h3>HKSTP</h3>
+          <p>Hong Kong Science & Technology Park Corporation, créé en 2001, est centré sur les « deeptech » et les entreprises à caractère industriel.</p>
+          <ul class="example-stats">
+            <li><strong>Focus</strong> <span>Deeptech & Industrie</span></li>
+            <li><strong>Durée d'accompagnement</strong> <span>8 ans</span></li>
+            <li><strong>Entreprises résidentes</strong> <span>2 200</span></li>
+            <li><strong>Années d'existence</strong> <span>24 ans</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Le Projet Section -->
+  <section id="projet" class="pillars-section">
+    <div class="container">
+      <h2 style="text-align: center;">Le Projet Agrotech 2032</h2>
+      <p class="section-intro">Agrotech 2032 s'inscrit dans la vision large de l'économie régénérative, ne se définissant plus comme une thématique isolée mais comme un projet stratégique et territorial cohérent reposant sur 5 piliers fondamentaux.</p>
+      
+      <ul class="pillars-list">
+        <li class="pillar-item">
+          <strong>Positionnement d'écosystème sur l'économie régénérative</strong>
+          <p>L'économie régénérative comprend les technologies vertes et du vivant, l'économie circulaire, la transition énergétique, la mobilité durable, l'agriculture et l'alimentation durable, ainsi que la finance durable.</p>
+          <p>Les entreprises de l’économie régénérative ont besoin de 2 à 4 ans pour entrer dans une dynamique de croissance et de 6 à 8 ans pour espérer engager une phase de développement exponentiel et engendrer valeur, emplois, impact. En travaillant sur 12 ans, nous créons les possibilités d'un réel retour sur investissement pour le territoire.</p>
+        </li>
+        <li class="pillar-item">
+          <strong>Temporalité longue de 12 ans</strong>
+          <p>Les « greentechs » ont besoin de 4 ans pour entrer dans une dynamique de croissance et de 8 ans pour développer une réelle profitabilité en phase de développement exponentiel. En travaillant sur 12 ans, nous créons les possibilités d'un réel retour sur investissement pour le territoire.</p>
+        </li>
+        <li class="pillar-item">
+          <strong>Capitalisation territoriale</strong>
+          <p>Par son infrastructure technique, sa vitalité et ses espaces immobiliers, Agrotech 2032 propose aux entreprises innovantes de s'installer sur site dans la durée, engendrant de réelles synergies de développement (effet d'écosystème).</p>
+        </li>
+        <li class="pillar-item">
+          <strong>Équipements adaptés aux Greentechs</strong>
+          <p>Infrastructures techniques, salles blanches, fablab, industrie-lab pour les préséries, condos industriels pour permettre aux entreprises de grandir avec des locaux adaptés et bon marché, espaces d'innovation, de créativité, de rencontres, de conférence, d'expérimentation agricole, serres connectées pour stimuler l'innovation et viser plus rapidement la rentabilité.</p>
+        </li>
+        <li class="pillar-item">
+          <strong>Écosystème rentable à long terme</strong>
+          <p>Par un accompagnement dans la durée et la stratégie de capitalisation territoriale, le territoire devient pour les entreprises un accélérateur de développement et renforce ses consommations (prestations, locations, emplois, logement), permettant de créer les conditions d'une autonomie financière sur le long terme.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Quote Section -->
+  <section class="quote-section">
+    <div class="quote-container">
+      <blockquote>
+        Un écosystème régénératif c'est un lieu d'intensité d'innovation et de développement économique, scientifique, technologique, industriel, académique, social, sociétal et financier qui impacte le territoire à court, moyen et long terme.
+      </blockquote>
+      <cite>— Thierry ROLLAND, Maire de Willems, Fondateur Agrotech Willems</cite>
+    </div>
+  </section>
+
+  <!-- Opportunity Section -->
+  <section class="opportunity-section">
+    <div class="container">
+      <div class="opportunity-content">
+        <h2 style="text-align: center;">Une Opportunité Stratégique pour nos Territoires</h2>
+        
+        <p>Si la « Tech Digitale » était essentiellement immatérielle, l'économie verte – qui régénère nos vies et notre économie – engendre davantage de développements scientifiques et industriels, nécessite des temps plus longs pour davantage de création de valeur, d'emplois, d'impacts, d'ancrage territorial, de souveraineté. Par sa nature, elle offre la possibilité de modèles économiques plus vertueux sur le long terme.</p>
+
+        <p>Nos territoires ont depuis plus de dix ans engagé une stratégie de différenciation sur une économie responsable pleinement au service des enjeux écologiques de long terme.</p>
+
+        <p>Nos territoires sont géographiquement en connexion avec d'autres territoires engagés dans des dynamiques de même nature, opportunité pour nous de développer des synergies d'avenir. En concentrant l'effort sur un même lieu avec un cap, nous pouvons être l'un des acteurs moteurs de cette nouvelle période.</p>
+
+        <div class="opportunity-highlight">
+          Nous entendons démontrer que cette voie peut être une source d'innovation, d'entrepreneuriat, de création d'emplois, d'une véritable nouvelle dynamique au service du développement du territoire.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision 2035 -->
+  <section class="vision-2035">
+    <div class="container stats-container">
+      <h2>Objectif à l'horizon 2035</h2>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number">100+</span>
+          <span class="stat-label">Entreprises ancrées</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">2000+</span>
+          <span class="stat-label">Emplois créés</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">12&nbsp;ans</span>
+          <span class="stat-label">Accompagnement</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">€€€</span>
+          <span class="stat-label">Autonomie financière</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="rejoindre" class="cta-section">
+    <div class="container cta-content">
+      <h2>Devenez Acteurs, Moteurs et Contributeurs d'Agrotech 2032</h2>
+      <p>La qualité et la puissance de la dynamique de l’écosystème Agrotech sera proportionnelle au nombre et à la qualité des acteurs engagés dans sa genèse. Un écosystème régénératif appelle naturellement toutes les composantes du territoire à être actrices : collectivités territoriales, financeurs publics, banques, entreprises, universités, accompagnants, experts, organisations citoyennes.</p>
+      
+      <div class="cta-buttons">
+  <a href="evenement.html" class="btn-primary btn-invite" data-cta="true">Participer à l'événement du 18 novembre →</a>
+        <a href="mailto:#" class="btn-secondary">Rejoindre le Comité de Développement</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners -->
+  <section class="partners-section">
+    <div class="container">
+      <h2 style="text-align: center;">En Partenariat Avec</h2>
+      <div class="logos-grid partners-grid">
+        <img src="https://agrotech2032.fr/img/banque-des-territoires-logo.webp" alt="Banque des Territoires">
+        <img src="https://agrotech2032.fr/img/logo_ird.webp" alt="IRD">
+        <img src="https://agrotech2032.fr/img/Logo-Bpifrance-Partenaire.webp" alt="Bpifrance">
+        <img src="https://agrotech2032.fr/img/logo-mel.webp" alt="MEL">
+        <img src="https://agrotech2032.fr/img/logo-euratechnologies-cropped.png" alt="Euratechnologies" style="height: 60px;">
+        <img src="https://agrotech2032.fr/img/AgroTech.webp" alt="Partenaire">
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <h3>Agrotech 2032</h3>
+      <p>Commune de Willems - Pôle ECLAT, Willems, France</p>
+      <div class="footer-links">
+        <a href="evenement.html">Événement 18 novembre 2025</a>
+        <a href="mailto:#">Contact</a>
+        <a href="cgu.html">CGU</a>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 salym.me - Tous droits réservés</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
