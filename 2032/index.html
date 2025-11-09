@@ -388,19 +388,31 @@
     .logos-grid.two-rows img:nth-child(7) { grid-column: 4; } /* CCI sur la même 2e ligne */
     
     .logos-grid.partners-grid {
-      /* Equal-width columns to avoid oversized gaps around mid logo (e.g., IRD) */
-      display: grid;
-      grid-template-columns: repeat(3, minmax(220px, 1fr));
+      /* Responsive single-line partners row: use flex so logos stay on one line and wrap if needed */
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
       justify-content: center;
-      justify-items: center;
       align-items: center;
-      gap: 2rem 2.5rem;
       max-width: 1100px;
       margin-left: auto;
       margin-right: auto;
+      padding: 0.5rem 0;
     }
 
-    .logos-grid.partners-grid img { height: 50px !important; width: auto; }
+    .logos-grid.partners-grid img {
+      height: 50px !important;
+      width: auto;
+      display: inline-block;
+      margin: 0;
+    }
+    /* Ensure nav logo transparency is preserved when possible */
+    nav .logo img.transparentify {
+      background: transparent;
+      /* try to blend out white backgrounds on light nav using mix-blend-mode */
+      mix-blend-mode: multiply;
+      display: block;
+    }
     .logos-grid.two-rows img { height: 56px; width: auto; }
 
     .logos-grid img {
@@ -433,22 +445,46 @@
       max-width: 1100px;
     }
     .logos-row img {
-      height: 56px;
+      height: 56px !important;
       width: auto;
       object-fit: contain;
       opacity: 0.85;
       filter: grayscale(20%);
       transition: all 0.4s ease;
     }
+    /* Shift the AgroTech organizer logo up slightly to align with neighbouring items */
+    .logos-row .logo-agrotech {
+      position: relative;
+      top: -15px;
+      display: inline-block;
+    }
     /* Finer control: reduce specific logo heights to harmonize line */
     .logos-row img.logo-hdf,
     .logos-row img.logo-cci {
-      height: 48px; /* adjust here if needed */
+      height: 48px !important; /* adjust here if needed */
     }
     .logos-row img:hover {
       opacity: 1;
       filter: grayscale(0%);
       transform: scale(1.08);
+    }
+
+    /* Group Agrotech + "Labellisé" + Greentech into a compact inline block */
+    .labelled-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem; /* small space between the three elements */
+    }
+
+    /* Small labelled text between logos (tighter than before so the three look like one block) */
+    .logos-row .labelled {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.95rem;
+      color: var(--emerald-700);
+      font-weight: 600;
+      margin: 0 0.35rem; /* reduced gap */
+      text-transform: none;
     }
 
     /* Section styles */
@@ -1369,6 +1405,12 @@
         min-width: 140px;
       }
     }
+    /* Force a consistent CCI height in the organizers row if other rules collide */
+    .logos-row img.logo-cci {
+      height: 48px !important;
+      max-height: 48px !important;
+      width: auto !important;
+    }
   </style>
 </head>
 <body>
@@ -1376,7 +1418,7 @@
   <nav id="navbar">
     <div class="nav-container">
       <a href="#" class="logo">
-        <img src="https://agrotech2032.fr/img/AgroTech.webp" alt="Agrotech">
+        <img class="transparentify" src="https://agrotech2032.fr/img/event-logo.png" alt="Agrotech 2032">
       </a>
       <ul>
         <li><a href="#vision">Vision</a></li>
@@ -1412,16 +1454,18 @@
     <p class="section-title">Un projet porté par</p>
     <div class="logos-rows">
       <div class="logos-row">
-        <img src="https://agrotech2032.fr/img/AgroTech.webp" alt="Agrotech" style="height: 60px;">
-        <img src="https://agrotech2032.fr/img/Logo-Greentech-Innovation-1.webp" alt="Greentech Innovation">
+        <div class="labelled-group">
+          <img src="https://agrotech2032.fr/img/AgroTech_transparent.webp" alt="Agrotech 2032" class="logo-agrotech" style="height: 60px;">
+          <span class="labelled">Labellisé</span>
+          <img src="https://agrotech2032.fr/img/Logo-Greentech-Innovation-1.webp" alt="Greentech Innovation" class="logo-greentech">
+        </div>
         <img src="https://agrotech2032.fr/img/logo-ville-de-willems.webp" alt="Ville de Willems">
       </div>
       <div class="logos-row">
-        <img class="logo-hdf" src="https://agrotech2032.fr/img/logo-region-hauts-de-france.webp" alt="Région Hauts-de-France">
-        <img src="https://agrotech2032.fr/img/logo-rev3-horizontal.png" alt="REV3">
-        <img src="https://agrotech2032.fr/img/CA_NORD-PAS-DE-CALAIS_H_RVB.webp" alt="Chambre d'Agriculture" style="height: 55px;">
-        <img class="logo-cci" src="https://agrotech2032.fr/img/logo-cci-hdf.webp" alt="CCI Hauts-de-France">
+  <img src="https://agrotech2032.fr/img/CA_NORD-PAS-DE-CALAIS_H_RVB.webp" alt="Chambre d'Agriculture" style="height: 10px;">
+  <img class="logo-cci" src="https://agrotech2032.fr/img/logo-cci-hdf.webp" alt="CCI Hauts-de-France" style="height: 10px;">
       </div>
+    </div>
     </div>
   </div>
 
@@ -1499,9 +1543,8 @@
         </div>
           <div class="stat-item">
             <span class="stat-number">2020</span>
-            <span class="stat-label">Les 2 ans d'Agrotech
-              <img src="https://agrotech2032.fr/img/logo-euratechnologies-cropped.png" alt="Euratechnologies" class="stat-logo">
-            </span>
+            <span class="stat-label">Les 2 ans d'Agrotech</span>
+            <span class="stat-sublabel"><img src="https://agrotech2032.fr/img/logo-euratechnologies-cropped.png" alt="Euratechnologies" class="stat-logo"></span>
           </div>
           <div class="stat-item">
             <span class="stat-number">2021</span>
@@ -1510,9 +1553,8 @@
           </div>
           <div class="stat-item">
             <span class="stat-number">2026</span>
-            <span class="stat-label">AGROTECH2032
-              <img src="https://agrotech2032.fr/img/event-logo.png" alt="Agrotech 2032 - événement" class="stat-logo">
-            </span>
+            <span class="stat-label">AGROTECH2032</span>
+            <span class="stat-sublabel"><img src="https://agrotech2032.fr/img/event-logo.png" alt="Agrotech 2032 - événement" class="stat-logo"></span>
           </div>
       </div>
     </div>
@@ -1737,8 +1779,11 @@
         <img src="https://agrotech2032.fr/img/logo_ird.webp" alt="IRD">
         <img src="https://agrotech2032.fr/img/Logo-Bpifrance-Partenaire.webp" alt="Bpifrance">
         <img src="https://agrotech2032.fr/img/logo-mel.webp" alt="MEL">
+        <img src="https://agrotech2032.fr/img/logo_inprincipo.jpg" alt="In Principo" style="height: 60px;">
         <img src="https://agrotech2032.fr/img/logo-euratechnologies-cropped.png" alt="Euratechnologies" style="height: 60px;">
-        <img src="https://agrotech2032.fr/img/AgroTech.webp" alt="Partenaire">
+        <img src="https://agrotech2032.fr/img/logo-rev3-horizontal.png" alt="REV3">
+        <img src="https://agrotech2032.fr/img/logo-region-hauts-de-france.webp" alt="Région Hauts-de-France" class="logo-hdf">
+  <!-- AgroTech moved back to organizers row -->
       </div>
     </div>
   </section>
