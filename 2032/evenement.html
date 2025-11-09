@@ -101,6 +101,11 @@
       margin-right: 0.5rem;
     }
 
+    /* Standardized navbar menu styles (kept identical with index.html)
+       - layout for menu
+       - link styles and underline animation
+       - button appearance for CTA nav items
+    */
     nav ul {
       display: flex;
       list-style: none;
@@ -162,6 +167,22 @@
       position: relative;
       overflow: hidden;
       color: white;
+    }
+
+    .hero .event-hero-logo {
+      position: absolute;
+      right: 2rem;
+      top: 2rem;
+      height: 80px;
+      width: auto;
+      z-index: 2;
+    }
+
+    /* nav logo transparency helper */
+    nav .logo img.transparentify {
+      background: transparent;
+      mix-blend-mode: multiply;
+      display: block;
     }
 
     .hero::before {
@@ -691,7 +712,7 @@
   <nav id="navbar">
     <div class="nav-container">
       <a href="index.html" class="logo">
-        <img src="https://agrotech2032.fr/img/AgroTech.webp" alt="Agrotech">
+        <img class="transparentify" src="https://agrotech2032.fr/img/event-logo.png" alt="Agrotech 2032">
       </a>
       <ul>
         <li><a href="index.html">Accueil</a></li>
@@ -709,6 +730,7 @@
       <h1>Événement de Lancement<br>Agrotech 2032</h1>
       <p class="subtitle">Participez à la construction du premier écosystème régénératif du Nord de l'Europe</p>
     </div>
+  <!-- event hero logo removed; nav now uses the event logo -->
   </section>
 
   <!-- Event Details -->
